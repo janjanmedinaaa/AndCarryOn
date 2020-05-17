@@ -18,7 +18,10 @@ function sendRequest(url) {
 
   fetch(BASE_URL, {
     method: 'post',
-    body: JSON.stringify({ url })
+    body: JSON.stringify({ url }),
+    headers: {
+      'Content-Type': 'application/json',
+    }
   })
   .then(response => response.json())
   .then(() => {
@@ -42,5 +45,7 @@ function disableButton(disable) {
 
 function carryOnClicked() {
   var url = document.getElementById('carryOnUrl').value
+
+  if (url == '') return
   sendRequest(url)
 }
