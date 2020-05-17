@@ -9,18 +9,26 @@
   toggleSpinner(false)
 })()
 
-const JSONBOX_ID = 'box_daa5a833190893fb9a3b'
-const BASE_URL = `https://jsonbox.io/${JSONBOX_ID}`
+const BASE_URL = `https://jsonbox.io`
+const ACO_SYNC_ID_KEY = 'ACO_SYNC_ID_KEY'
 
-function sendRequest(url) {
-  if (url == '') return
+var currentUrl = ''
+var requestOnSave = false
+
+function sendRequest(acoSyncId) {
+  if (currentUrl == '') return
+  if (acoSyncId == '') {
+    requestOnSave = true
+    toggleModal(true)
+    return
+  }
 
   toggleSpinner(true)
   disableButton(true)
 
-  fetch(BASE_URL, {
+  fetch(`${BASE_URL}/${acoSyncId}`, {
     method: 'post',
-    body: JSON.stringify({ url }),
+    body: JSON.stringify({ url: currentUrl }),
     headers: {
       'Content-Type': 'application/json',
     }
@@ -37,6 +45,27 @@ function sendRequest(url) {
   })
 }
 
+function saveAcoSyncID(id) {
+  localStorage.setItem(ACO_SYNC_ID_KEY, id)
+}
+
+function getAcoSyncID() {
+  return localStorage.getItem(ACO_SYNC_ID_KEY) || ''
+}
+
+function toggleModal(show) {
+  var modal = document.querySelector('dialog')
+  var acoSyncIdInput = modal.querySelector('#acoSyncId')
+
+  if (show) {
+    acoSyncIdInput.parentNode.MaterialTextfield.change(getAcoSyncID())
+    modal.showModal()
+  } else {
+    acoSyncIdInput.value = ''
+    modal.close()
+  }
+}
+
 function toggleSpinner(show) {
   document.getElementById('carryOnSpinner').hidden = !show
 }
@@ -45,9 +74,22 @@ function disableButton(disable) {
   document.getElementById('carryOnButton').disabled = disable
 }
 
+function saveClicked() {
+  var modal = document.querySelector('dialog')
+  var asoSyncId = modal.querySelector('#acoSyncId').value
+
+  saveAcoSyncID(asoSyncId)
+  toggleModal(false)
+
+  if (requestOnSave) {
+    requestOnSave = false
+    sendRequest(getAcoSyncID())
+  }
+}
+
 function carryOnClicked() {
-  var url = document.getElementById('carryOnUrl').value
-  sendRequest(url)
+  currentUrl = document.getElementById('carryOnUrl').value
+  sendRequest(getAcoSyncID())
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -57,6 +99,6 @@ window.addEventListener('DOMContentLoaded', () => {
   var text = parsedUrl.searchParams.get('text')
   var title = parsedUrl.searchParams.get('title')
   
-  var currentUrl = url || text || title || ''
-  sendRequest(currentUrl)
+  currentUrl = url || text || title || ''
+  sendRequest(getAcoSyncID())
 });

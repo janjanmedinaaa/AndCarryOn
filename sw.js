@@ -2,6 +2,7 @@ var cacheName = 'AndCarryOn-v1';
 var filesToCache = [
   '/AndCarryOn/index.html',
   '/AndCarryOn/css/index.css',
+  '/AndCarryOn/css/mdl-overwrite.css',
   '/AndCarryOn/js/index.js',
   '/AndCarryOn/chrome-extension/images/icon.png'
 ];

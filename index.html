@@ -8,24 +8,43 @@
       <link rel="stylesheet" href="lib/mdl/material.min.css">
       <script src="lib/mdl/material.min.js"></script>
 
-      <!--Import Manifest file-->
+      <!-- Import Manifest file -->
       <link rel="manifest" href="manifest.json" />
 
       <link rel="canonical" href="https://janjanmedinaaa.github.io/AndCarryOn/" />
+
+      <!-- Custom CSS -->
       <link rel="stylesheet" href="css/index.css" />
+      <link rel="stylesheet" href="css/mdl-overwrite.css" />
     </head>
     <body>
       <div class="main_container">
         <h1>And Carry On</h1>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
           <input class="mdl-textfield__input" type="text" id="carryOnUrl">
-          <label class="mdl-textfield__label" for="sample3">Carry On URL</label>
+          <label class="mdl-textfield__label" for="carryOnUrl">Carry On URL</label>
         </div>
         <button id="carryOnButton" onclick="carryOnClicked()" class="mdl-button mdl-js-button mdl-button--raised">
           Carry On WebPage
         </button>
         <h6>Made with <i class="material-icons">favorite</i> by Janjan Medina</h6>
+        <button onclick="toggleModal(true)" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored fab-button">
+          <i class="material-icons">add</i>
+        </button>
         <div id="carryOnSpinner" class="mdl-spinner mdl-js-spinner is-active"></div>
+        <dialog class="mdl-dialog">
+          <h4 class="mdl-dialog__title">ACO Sync ID</h4>
+          <div class="mdl-dialog__content">
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" id="acoSyncId">
+              <label class="mdl-textfield__label" for="acoSyncId">box_daa5a833190893fb9a3b</label>
+            </div>
+          </div>
+          <div class="mdl-dialog__actions">
+            <button type="button" onclick="saveClicked()" class="mdl-button">Save</button>
+            <button type="button" onclick="toggleModal(false)" class="mdl-button close">Cancel</button>
+          </div>
+        </dialog>
       </div>
 
       <!-- Scripts -->
