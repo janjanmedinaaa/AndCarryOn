@@ -14,6 +14,7 @@ const ACO_SYNC_ID_KEY = 'ACO_SYNC_ID_KEY'
 
 var currentUrl = ''
 var requestOnSave = false
+var exitOnRequest = false
 
 function sendRequest(acoSyncId) {
   if (currentUrl == '') return
@@ -38,6 +39,11 @@ function sendRequest(acoSyncId) {
     document.getElementById('carryOnUrl').value = ''
     toggleSpinner(false)
     disableButton(false)
+    
+    if (exitOnRequest) {
+      exitOnRequest = false
+      window.close()
+    }
   })
   .catch(() => {
     toggleSpinner(false)
@@ -100,5 +106,6 @@ window.addEventListener('DOMContentLoaded', () => {
   var title = parsedUrl.searchParams.get('title')
   
   currentUrl = url || text || title || ''
+  exitOnRequest = true
   sendRequest(getAcoSyncID())
 });
