@@ -13,6 +13,8 @@ const JSONBOX_ID = 'box_daa5a833190893fb9a3b'
 const BASE_URL = `https://jsonbox.io/${JSONBOX_ID}`
 
 function sendRequest(url) {
+  if (url == '') return
+
   toggleSpinner(true)
   disableButton(true)
 
@@ -45,7 +47,17 @@ function disableButton(disable) {
 
 function carryOnClicked() {
   var url = document.getElementById('carryOnUrl').value
-
-  if (url == '') return
   sendRequest(url)
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  const parsedUrl = new URL(window.location)
+
+  var url = parsedUrl.searchParams.get('url')
+  var text = parsedUrl.searchParams.get('text')
+  var title = parsedUrl.searchParams.get('title')
+  
+  var currentUrl = url || text || title || ''
+  document.getElementById('carryOnUrl').value = currentUrl
+  // sendRequest(currentUrl)
+});

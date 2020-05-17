@@ -12,5 +12,14 @@
   "start_url": "/AndCarryOn/",
   "background_color": "#5AA8FF",
   "theme_color": "#5AA8FF",
-  "display": "standalone"
+  "display": "standalone",
+  "share_target": {
+    "action": "/carryon",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
 }
