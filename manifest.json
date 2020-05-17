@@ -14,7 +14,7 @@
   "theme_color": "#5AA8FF",
   "display": "standalone",
   "share_target": {
-    "action": "/carryon",
+    "action": "/",
     "method": "GET",
     "params": {
       "title": "title",
