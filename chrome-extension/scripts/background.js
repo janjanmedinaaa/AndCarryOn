@@ -32,7 +32,7 @@ function requestLatestURL() {
 }
 
 chrome.runtime.onInstalled.addListener(function() {
-  chrome.alarms.create(REQUEST_ALARM, { periodInMinutes: 0.1 });
+  chrome.alarms.create(REQUEST_ALARM, { periodInMinutes: 0.07 });
 });
 
 chrome.alarms.onAlarm.addListener((alarm) => {
