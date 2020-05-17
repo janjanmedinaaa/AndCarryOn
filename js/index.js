@@ -58,6 +58,5 @@ window.addEventListener('DOMContentLoaded', () => {
   var title = parsedUrl.searchParams.get('title')
   
   var currentUrl = url || text || title || ''
-  document.getElementById('carryOnUrl').value = currentUrl
-  // sendRequest(currentUrl)
+  sendRequest(currentUrl)
 });
