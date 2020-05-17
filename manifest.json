@@ -1,0 +1,16 @@
+{
+  "short_name": "ACO",
+  "name": "And Carry On",
+  "icons": [
+    {
+      "src":"chrome-extension/images/icon.png",
+      "type": "image/png",
+      "sizes": "144x144",
+      "density": 1
+    }
+  ],
+  "start_url": "/AndCarryOn/",
+  "background_color": "#5AA8FF",
+  "theme_color": "#5AA8FF",
+  "display": "standalone"
+}

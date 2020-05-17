@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "AndCarryOn",
+  "version": "1.0",
+  "permissions": ["tabs", "storage", "notifications", "alarms"],
+  "browser_action": {
+    "default_title": "AndCarryOn",
+    "default_icon": "/images/icon.png"
+  },
+  "background": {
+    "scripts": ["scripts/background.js"],
+    "persistent": false
+  }
+}
