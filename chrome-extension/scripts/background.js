@@ -1,4 +1,4 @@
-const JSONBOX_ID = 'box_daa5a833190893fb9a3b'
+const JSONBOX_ID = ''
 const LAST_REQUEST_ID = 'LAST_REQUEST_ID'
 const REQUEST_ALARM = 'REQUEST_ALARM'
 const BASE_URL = `https://jsonbox.io/${JSONBOX_ID}?limit=1`
