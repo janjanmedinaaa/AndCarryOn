@@ -1,30 +1,31 @@
 body {
-  margin: 0;
+  font-family: Roboto Light;
   padding: 0;
-  display: flex;
-  width: 100%;
-  height: 100%;
+  margin: 0;
 }
 
 h1 {
-  font-weight: 300;
+  font-size: 70px;
   text-align: center;
   position: absolute;
-  top: 20px;
-  padding: 20px;
-  color: #5AA8FF;
+  top: 80px;
+  margin: 0;
 }
 
 h6 {
-  font-weight: 300;
+  font-size: 20px;
   text-align: center;
   position: absolute;
   bottom: 20px;
-  padding: 20px;
+  margin: 0;
 }
 
-i {
-  color: #5AA8FF;
+.parent_container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main_container {
@@ -35,14 +36,19 @@ i {
   flex-direction: column;
 }
 
-.fab-button {
-  position: fixed;
-  right: 0;
-  bottom: 0;  
-  margin: 20px;
-  z-index: 1;
+.ezss-input {
+  font-size: 15px;
+  padding: 10px 10px;
+  justify-self: center;
+  margin: 10px;
+  width: 80%;
+  max-width: 400px;
 }
 
-.fab-button i {
-  color: #FFFFFF;
+.ezss-btn {
+  font-size: 15px;
+  padding: 10px 30px;
+  margin: 10px;
+  width: 50%;
+  max-width: 200px;
 }

@@ -3,14 +3,11 @@
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <!-- Dialog Polyfill -->
-      <link rel="stylesheet" href="lib/dialog-polyfill/dialog-polyfill.css">
-      <script src="lib/dialog-polyfill/dialog-polyfill.js"></script>
-  
-      <!-- Material Design Lite -->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <link rel="stylesheet" href="lib/mdl/material.min.css">
-      <script src="lib/mdl/material.min.js"></script>
+      <!-- Font Awesome -->
+      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+      <!-- EZSS Library -->
+      <link rel="stylesheet" href="lib/ezss/css/ezss.css" />
 
       <!-- Import Manifest file -->
       <link rel="manifest" href="manifest.json" />
@@ -19,36 +16,17 @@
 
       <!-- Custom CSS -->
       <link rel="stylesheet" href="css/index.css" />
-      <link rel="stylesheet" href="css/mdl-overwrite.css" />
+      <link rel="stylesheet" href="css/loading.css" />
     </head>
     <body>
-      <div class="main_container">
-        <h1>And Carry On</h1>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label carry-on-url">
-          <input class="mdl-textfield__input" type="text" id="carryOnUrl">
-          <label class="mdl-textfield__label" for="carryOnUrl">Carry On URL</label>
+      <div class="parent_container">
+        <div class="main_container">
+          <h1>And Carry On</h1>
+          <input type="text" id="acoInput" class="ezss-input" placeholder="https://janjanmedinaaa.github.io"/> 
+          <button class="ezss-btn" id="sendButton" onclick="sendButtonClicked()">SEND</button>
+          <h6>Made with <i class="fas fa-heart text-danger"></i> by Janjan Medina</h6>
         </div>
-        <button id="carryOnButton" onclick="carryOnClicked()" class="mdl-button mdl-js-button mdl-button--raised">
-          Carry On WebPage
-        </button>
-        <h6>Made with <i class="material-icons">favorite</i> by Janjan Medina</h6>
-        <button onclick="toggleModal(true)" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored fab-button">
-          <i class="material-icons">add</i>
-        </button>
-        <div id="carryOnSpinner" class="mdl-spinner mdl-js-spinner is-active"></div>
-        <dialog class="mdl-dialog">
-          <h4 class="mdl-dialog__title">ACO Sync ID</h4>
-          <div class="mdl-dialog__content">
-            <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="text" id="acoSyncId">
-              <label class="mdl-textfield__label" for="acoSyncId">box_daa5a833190893fb9a3b</label>
-            </div>
-          </div>
-          <div class="mdl-dialog__actions">
-            <button type="button" onclick="saveClicked()" class="mdl-button">Save</button>
-            <button type="button" onclick="toggleModal(false)" class="mdl-button close">Cancel</button>
-          </div>
-        </dialog>
+        <div id="loader" class="loader">Loading...</div>
       </div>
 
       <!-- Scripts -->

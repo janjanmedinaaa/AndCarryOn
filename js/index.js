@@ -13,16 +13,9 @@ const BASE_URL = `https://jsonbox.io`
 const ACO_SYNC_ID_KEY = 'ACO_SYNC_ID_KEY'
 
 var currentUrl = ''
-var requestOnSave = false
-var exitOnRequest = false
 
 function sendRequest(acoSyncId) {
   if (currentUrl == '') return
-  if (acoSyncId == '') {
-    requestOnSave = true
-    toggleModal(true)
-    return
-  }
 
   toggleSpinner(true)
   disableButton(true)
@@ -39,11 +32,6 @@ function sendRequest(acoSyncId) {
     document.getElementById('carryOnUrl').value = ''
     toggleSpinner(false)
     disableButton(false)
-    
-    if (exitOnRequest) {
-      exitOnRequest = false
-      window.close()
-    }
   })
   .catch(() => {
     toggleSpinner(false)
@@ -59,42 +47,16 @@ function getAcoSyncID() {
   return localStorage.getItem(ACO_SYNC_ID_KEY) || ''
 }
 
-function toggleModal(show) {
-  var modal = document.querySelector('dialog')
-  var acoSyncIdInput = modal.querySelector('#acoSyncId')
-
-  if (show) {
-    acoSyncIdInput.parentNode.MaterialTextfield.change(getAcoSyncID())
-    modal.showModal()
-  } else {
-    acoSyncIdInput.value = ''
-    modal.close()
-  }
-}
-
 function toggleSpinner(show) {
-  document.getElementById('carryOnSpinner').hidden = !show
+  document.getElementById('loader').hidden = !show
 }
 
 function disableButton(disable) {
-  document.getElementById('carryOnButton').disabled = disable
+  document.getElementById('sendButton').disabled = disable
 }
 
-function saveClicked() {
-  var modal = document.querySelector('dialog')
-  var asoSyncId = modal.querySelector('#acoSyncId').value
-
-  saveAcoSyncID(asoSyncId)
-  toggleModal(false)
-
-  if (requestOnSave) {
-    requestOnSave = false
-    sendRequest(getAcoSyncID())
-  }
-}
-
-function carryOnClicked() {
-  currentUrl = document.getElementById('carryOnUrl').value
+function sendButtonClicked() {
+  currentUrl = document.getElementById('acoInput').value
   sendRequest(getAcoSyncID())
 }
 
@@ -106,6 +68,5 @@ window.addEventListener('DOMContentLoaded', () => {
   var title = parsedUrl.searchParams.get('title')
   
   currentUrl = url || text || title || ''
-  exitOnRequest = true
   sendRequest(getAcoSyncID())
 });

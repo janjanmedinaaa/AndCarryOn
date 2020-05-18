@@ -2,8 +2,19 @@ var cacheName = 'AndCarryOn-v1';
 var filesToCache = [
   '/AndCarryOn/index.html',
   '/AndCarryOn/css/index.css',
-  '/AndCarryOn/css/mdl-overwrite.css',
+  '/AndCarryOn/js/loading.css',
   '/AndCarryOn/js/index.js',
+
+  '/AndCarryOn/code.html',
+  '/AndCarryOn/css/code.css',
+  '/AndCarryOn/js/code.js',
+
+  '/AndCarryOn/lib/ezss/css/ezss-assets.css',
+  '/AndCarryOn/lib/ezss/css/ezss-basics.css',
+  '/AndCarryOn/lib/ezss/css/ezss-fonts.css',
+  '/AndCarryOn/lib/ezss/css/ezss.css',
+  '/AndCarryOn/lib/ezss/css/reset.css',
+
   '/AndCarryOn/chrome-extension/images/icon.png'
 ];
 
