@@ -1,3 +1,8 @@
+const BASE_URL = `https://jsonbox.io`;
+const ACO_SYNC_ID_KEY = 'ACO_SYNC_ID_KEY';
+
+var currentUrl = '';
+
 (function() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker
@@ -6,19 +11,27 @@
         console.log('Service Worker Registered'); 
       });
   }
-  toggleSpinner(false)
+
+  setupCodeInputListener();
+  toggleSpinner(false);
 })()
 
-const BASE_URL = `https://jsonbox.io`
-const ACO_SYNC_ID_KEY = 'ACO_SYNC_ID_KEY'
+function setupCodeInputListener() {
+  let input = document.getElementById('codeInput');
+  let timeout = null;
 
-var currentUrl = ''
+  input.value = getAcoSyncID();
+  input.addEventListener('keyup', () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => saveAcoSyncID(input.value), 500);
+  });
+}
 
 function sendRequest(acoSyncId) {
   if (currentUrl == '') return
 
-  toggleSpinner(true)
-  disableButton(true)
+  toggleSpinner(true);
+  disableButton(true);
 
   fetch(`${BASE_URL}/${acoSyncId}`, {
     method: 'post',
@@ -29,44 +42,44 @@ function sendRequest(acoSyncId) {
   })
   .then(response => response.json())
   .then(() => {
-    document.getElementById('carryOnUrl').value = ''
-    toggleSpinner(false)
-    disableButton(false)
+    document.getElementById('acoInput').value = '';
+    toggleSpinner(false);
+    disableButton(false);
   })
   .catch(() => {
-    toggleSpinner(false)
-    disableButton(false)
+    toggleSpinner(false);
+    disableButton(false);
   })
 }
 
 function saveAcoSyncID(id) {
-  localStorage.setItem(ACO_SYNC_ID_KEY, id)
+  localStorage.setItem(ACO_SYNC_ID_KEY, id);
 }
 
 function getAcoSyncID() {
-  return localStorage.getItem(ACO_SYNC_ID_KEY) || ''
+  return localStorage.getItem(ACO_SYNC_ID_KEY) || '';
 }
 
 function toggleSpinner(show) {
-  document.getElementById('loader').hidden = !show
+  document.getElementById('loader').hidden = !show;
 }
 
 function disableButton(disable) {
-  document.getElementById('sendButton').disabled = disable
+  document.getElementById('sendButton').disabled = disable;
 }
 
 function sendButtonClicked() {
-  currentUrl = document.getElementById('acoInput').value
+  currentUrl = document.getElementById('acoInput').value;
   sendRequest(getAcoSyncID())
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  const parsedUrl = new URL(window.location)
+  const parsedUrl = new URL(window.location);
 
-  var url = parsedUrl.searchParams.get('url')
-  var text = parsedUrl.searchParams.get('text')
-  var title = parsedUrl.searchParams.get('title')
+  var url = parsedUrl.searchParams.get('url');
+  var text = parsedUrl.searchParams.get('text');
+  var title = parsedUrl.searchParams.get('title');
   
-  currentUrl = url || text || title || ''
-  sendRequest(getAcoSyncID())
+  currentUrl = url || text || title || '';
+  sendRequest(getAcoSyncID());
 });

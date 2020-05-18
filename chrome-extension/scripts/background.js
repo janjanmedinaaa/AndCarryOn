@@ -1,19 +1,19 @@
 /**
  * Chrome Storage Keys
  */
-const LAST_REQUEST_ID = 'LAST_REQUEST_ID'
-const ACO_SYNC_ID = 'ACO_SYNC_ID'
+const LAST_REQUEST_ID = 'LAST_REQUEST_ID';
+const ACO_SYNC_ID = 'ACO_SYNC_ID';
 
 /**
  * Chrome Alarm Keys
  */
-const REQUEST_ALARM = 'REQUEST_ALARM'
+const REQUEST_ALARM = 'REQUEST_ALARM';
 
 /**
  * Base URLs
  */
-const BASE_URL = `https://jsonbox.io`
-const CODE_URL = `https://janjanmedinaaa.github.io/AndCarryOn/code.html`
+const BASE_URL = `https://jsonbox.io`;
+const CODE_URL = `https://janjanmedinaaa.github.io/AndCarryOn/code.html`;
 
 function makeACOKey(length) {
   var result = '';

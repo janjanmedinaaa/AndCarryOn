@@ -37,10 +37,13 @@ h6 {
 }
 
 .ezss-input {
+  margin: 10px;
+}
+
+.aco_input {
   font-size: 15px;
   padding: 10px 10px;
   justify-self: center;
-  margin: 10px;
   width: 80%;
   max-width: 400px;
 }
