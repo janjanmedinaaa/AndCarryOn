@@ -13,7 +13,7 @@ const REQUEST_ALARM = 'REQUEST_ALARM';
  * Base URLs
  */
 const BASE_URL = `https://jsonbox.io`;
-const CODE_URL = `https://janjanmedinaaa.github.io/AndCarryOn/code.html`;
+const CODE_URL = `https://janjanmedinaaa.github.io/AndCarryOn/v1/code.html`;
 
 function makeACOKey(length) {
   var result = '';

@@ -4,19 +4,28 @@ body {
   margin: 0;
 }
 
+h1 {
+  font-size: 70px;
+  text-align: center;
+  position: absolute;
+  top: 80px;
+  margin: 0;
+}
+
+h6 {
+  font-size: 20px;
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  margin: 0;
+}
+
 .parent_container {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* https://wallhere.com/en/wallpaper/1793295 */
-  background-image: url("/images/background.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .main_container {
@@ -29,7 +38,6 @@ body {
 
 .ezss-input {
   margin: 10px;
-  z-index: 2;
 }
 
 .aco_input {
@@ -38,4 +46,12 @@ body {
   justify-self: center;
   width: 80%;
   max-width: 400px;
+}
+
+.ezss-btn {
+  font-size: 15px;
+  padding: 10px 30px;
+  margin: 10px;
+  width: 50%;
+  max-width: 200px;
 }

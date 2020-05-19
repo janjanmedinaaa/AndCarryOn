@@ -9,12 +9,12 @@
       "density": 1
     }
   ],
-  "start_url": "/AndCarryOn/",
+  "start_url": "/AndCarryOn/v1/",
   "background_color": "#FFFFFF",
   "theme_color": "#FFFFFF",
   "display": "standalone",
   "share_target": {
-    "action": "/AndCarryOn/",
+    "action": "/AndCarryOn/v1/",
     "method": "GET",
     "params": {
       "title": "title",

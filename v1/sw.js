@@ -1,18 +1,18 @@
-var cacheName = 'AndCarryOn-v2';
+var cacheName = 'AndCarryOn-v1';
 var filesToCache = [
-  '/AndCarryOn/index.html',
-  '/AndCarryOn/css/index.css',
-  '/AndCarryOn/js/index.js',
+  '/AndCarryOn/v1/index.html',
+  '/AndCarryOn/v1/css/index.css',
+  '/AndCarryOn/v1/css/loading.css',
+  '/AndCarryOn/v1/js/index.js',
 
-  '/AndCarryOn/lib/ezss/css/ezss-assets.css',
-  '/AndCarryOn/lib/ezss/css/ezss-basics.css',
-  '/AndCarryOn/lib/ezss/css/ezss-fonts.css',
-  '/AndCarryOn/lib/ezss/css/ezss-nav.css',
-  '/AndCarryOn/lib/ezss/css/ezss.css',
-  '/AndCarryOn/lib/ezss/css/reset.css',
+  '/AndCarryOn/v1/lib/ezss/css/ezss-assets.css',
+  '/AndCarryOn/v1/lib/ezss/css/ezss-basics.css',
+  '/AndCarryOn/v1/lib/ezss/css/ezss-fonts.css',
+  '/AndCarryOn/v1/lib/ezss/css/ezss-nav.css',
+  '/AndCarryOn/v1/lib/ezss/css/ezss.css',
+  '/AndCarryOn/v1/lib/ezss/css/reset.css',
 
-  '/AndCarryOn/chrome-extension/images/icon.png',
-  '/AndCarryOn/images/background.jpg'
+  '/AndCarryOn/v1/chrome-extension/images/icon.png'
 ];
 
 self.addEventListener('install', function(e) {
