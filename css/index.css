@@ -12,7 +12,7 @@ body {
   align-items: center;
 
   /* https://wallhere.com/en/wallpaper/1793295 */
-  background-image: url("../images/background.jpg");
+  background-image: url("images/background.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
